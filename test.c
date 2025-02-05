@@ -3,49 +3,45 @@
 
 void menu () ;
 
-int valeur (int x) ;
+int valeur () ;
 
 int main () 
 {
 	int nombre;
 
-	menu();
-
 	do
 	{
-		valeur(nombre);
+		menu();
+		nombre = valeur();
 		
-		if (nombre > 0 && nombre < 4)
+		if (nombre==1)
+		{	
+			system("ip a");
+		}	
+		else if (nombre==2)
 		{
-			if (nombre==1)
-			{
-				system("ip a");
-			}
-			
-			else if (nombre==2)
-			{
-				system("ip route");
-			}
-
-			else if (nombre==3)
-			{
-				system("ping -c 4 8.8.8.8");
-			}
+			system("ip route");
+		}
+		else if (nombre==3)
+		{
+			system("ping -c 4 8.8.8.8");
+		}
 
 		else if (nombre == 0)
 		{
-			system("-");
+			printf("Fermeture du programe\n");
 		}
-
+		else
+		{
+			printf("Erreur ! Veuillez entrer un chiffre valide (0-3).\n");
 		}
 
 	}
 		
-	
 	while (nombre != 0);
-	{
-		printf("Erreur !, veuillez entrez un des chiffres qui s'affiche sur le menu");
-	}
+	
+	
+	
 	
 	return 0;
 }
@@ -59,8 +55,10 @@ void menu ()
 	printf("Pour quitter le menu, veuillez tapez 0.\n");
 }
 
-int valeur (int x)
+int valeur ()
 {
-	printf("Veuillez entre le nombre souhaité: ");
-	scanf("%i",&x);
+	int x;
+		printf("Veuillez entrez un nombre: ");	
+		scanf("%d", &x);
+	return x;
 }
